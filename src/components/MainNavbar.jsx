@@ -25,7 +25,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
   return (
     <Disclosure
       as="nav"
-      className={`bg-nav-bg ${screen ? "px-35" : ""}`}
+      className={`bg-nav-bg ${screen ? "px-36" : ""}`}
     >
       {({ open }) => (
         <>

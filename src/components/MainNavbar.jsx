@@ -1,15 +1,15 @@
 import React from "react";
-import { Fragment } from "react";
-import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
+import { Disclosure,  } from "@headlessui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
+import { useLocation } from 'react-router-dom';
 
 const navigation = [
-  { name: "SPORTS", href: "#", current: true },
-  { name: "IN-PLAY", href: "#", current: false },
+  { name: "SPORTS", href: "/all-sports", current: true },
+  { name: "IN-PLAY", href: "/in-play", current: false },
   { name: "IPL CLUB", href: "#", current: false },
-  { name: "INDIAN CASINO", href: "#", current: false },
+  { name: "INDIAN CASINO", href: "/indian-casino", current: false },
   { name: "LIVE CASINO", href: "#", current: false },
   { name: "SLOTS", href: "#", current: false },
 ];
@@ -18,6 +18,10 @@ function classNames(...classes) {
 }
 
 export const MainNavbar = ({ setToggle, toggle }) => {
+  const location = useLocation();
+  const currentRoute = location.pathname;
+  console.log(currentRoute);
+
   return (
     <Disclosure as="nav" className="bg-nav-bg">
       {({ open }) => (
@@ -26,7 +30,7 @@ export const MainNavbar = ({ setToggle, toggle }) => {
             <div className="relative flex items-center justify-between gap-3">
               <div
                 className={`text-white ${
-                  toggle ? "text-[30px]" : "text-[20px]"
+                  toggle ? "text-[20px]" : "text-[20px]"
                 }  md:hidden`}
                 onClick={() => setToggle(!toggle)}
               >
@@ -35,6 +39,7 @@ export const MainNavbar = ({ setToggle, toggle }) => {
 
               <div className="flex flex-1 items-center justify-start sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
+                  <Link to='/'>
                   <img
                     className="block h-10 w-auto lg:hidden"
                     src="https://sportsexch.com/images/logo/main.png"
@@ -45,31 +50,30 @@ export const MainNavbar = ({ setToggle, toggle }) => {
                     src="https://sportsexch.com/images/logo/main.png"
                     alt="Your Company"
                   />
+                  </Link>
                 </div>
                 <div className="hidden sm:ml-6 md:block">
                   <div className="flex space-x-2 h-full items-center">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.href}
                         className={classNames(
-                          item.current
-                            ? "bg-[#6c757d] text-white"
-                            : "text-white hover:bg-gray-700 hover:text-white",
-                          "px-3 py-5 text-xs font-font-family font-semibold"
+                          item.href == currentRoute  && "bg-[#6c757d] text-white",
+                          "px-3 py-5 text-xs font-font-family font-semibold text-white hover:bg-gray-700 hover:text-white"
                         )}
                         aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
               </div>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
                 <button
                   type="button"
-                  className=" font-semibold p-1 text-sm text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className=" font-semibold p-2 text-xs text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   LOGIN
                 </button>
@@ -77,7 +81,7 @@ export const MainNavbar = ({ setToggle, toggle }) => {
                 {/* Profile dropdown */}
                 <button
                   type="button"
-                  className=" font-semibold rounded-sm bg-green-500 p-2 text-sm text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className=" font-semibold rounded-md bg-green-500 p-3 text-xs text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   SIGN UP
                 </button>

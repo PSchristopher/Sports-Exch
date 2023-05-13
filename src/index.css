@@ -50,3 +50,8 @@
 .scroll-x::-webkit-scrollbar{
     display: none;
 }
+.underline{
+    border-color: #1890ff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }

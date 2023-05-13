@@ -31,11 +31,11 @@ export const Layout = () => {
   }, []);
   return (
     <div className="bg-black h-[100vh] overflow-y-hidden ">
-      <div className="mx-auto">
-        {<MainNavbar setToggle={setToggle} toggle={toggle} />}
+      <div className={`mx-auto `}>
+        {<MainNavbar setToggle={setToggle} toggle={toggle} screen={isAboveXl}/>}
       </div>
-      <div className={`container mx-auto md:max-w-full md:mx-0 mt-2 ${isAboveXl ? 'px-40' : ''}`}>
-        <div className="p-2 ">
+      <div className={`container mx-auto md:max-w-full md:mx-0 mt-2 ${isAboveXl ? 'px-36' : ''}`}>
+        <div className="">
           <div className="flex ">
             {toggle ? (
               <div className="h-[90vh] overflow-y-scroll scrollbar-hide bg-black absolute md:relative z-50 w-2/4 max-w-[252px]">

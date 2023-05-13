@@ -12,7 +12,7 @@ export const MobileNavbar = () => {
         {name:'Sports',link:'/all-sports',icon:MdOutlineScoreboard,dis:"translate-x-32"},
         {name:'In-play',link:'/in-play',icon:MdAccessTimeFilled,dis:"translate-x-0"},
         {name:'Indian Casino',link:'/indian-casino',icon:GiCardAceClubs,dis:"translate-x-48"},
-        {name:'Live Casino',link:'#',icon:BsFillDice5Fill,dis:"translate-x-16"},
+        {name:'Live Casino',link:'/live-casino',icon:BsFillDice5Fill,dis:"translate-x-16"},
         // {name:'Slots',link:'/slots',icon:BsFillDice5Fill,dis:"translate-x-16"},
     ]
 

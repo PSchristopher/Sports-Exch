@@ -4,7 +4,7 @@ import Slider from "react-slick";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-export const Slots = () => {
+export const LiveCasino = () => {
   const settings = {
     // dots: true,
     infinite: true,

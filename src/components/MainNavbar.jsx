@@ -1,29 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Disclosure,  } from "@headlessui/react";
+import { Disclosure } from "@headlessui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 
 const navigation = [
   { name: "SPORTS", href: "/all-sports", current: true },
   { name: "IN-PLAY", href: "/in-play", current: false },
   { name: "IPL CLUB", href: "/indian-premier-league", current: false },
   { name: "INDIAN CASINO", href: "/indian-casino", current: false },
-  { name: "LIVE CASINO", href: "#", current: false },
+  { name: "LIVE CASINO", href: "/live-casino", current: false },
   { name: "SLOTS", href: "/slots", current: false },
 ];
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export const MainNavbar = ({ setToggle, toggle }) => {
+export const MainNavbar = ({ setToggle, toggle, screen }) => {
   const location = useLocation();
   const currentRoute = location.pathname;
-  console.log(currentRoute);
+  console.log(currentRoute, screen, "jiii");
 
   return (
-    <Disclosure as="nav" className="bg-nav-bg">
+    <Disclosure
+      as="nav"
+      className={`bg-nav-bg ${screen ? "px-35" : ""}`}
+    >
       {({ open }) => (
         <>
           <div className="px-2 sm:px-6 lg:px-8">
@@ -34,22 +37,22 @@ export const MainNavbar = ({ setToggle, toggle }) => {
                 }  md:hidden`}
                 onClick={() => setToggle(!toggle)}
               >
-                {toggle ? <AiOutlineClose />: <BiMenuAltLeft />}
+                {toggle ? <AiOutlineClose /> : <BiMenuAltLeft />}
               </div>
 
               <div className="flex flex-1 items-center justify-start sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <Link to='/'>
-                  <img
-                    className="block h-10 w-auto lg:hidden"
-                    src="https://sportsexch.com/images/logo/main.png"
-                    alt="Your Company"
-                  />
-                  <img
-                    className="hidden h-12 w-auto lg:block"
-                    src="https://sportsexch.com/images/logo/main.png"
-                    alt="Your Company"
-                  />
+                  <Link to="/">
+                    <img
+                      className="block h-10 w-auto lg:hidden"
+                      src="https://sportsexch.com/images/logo/main.png"
+                      alt="Your Company"
+                    />
+                    <img
+                      className="hidden h-12 w-auto lg:block"
+                      src="https://sportsexch.com/images/logo/main.png"
+                      alt="Your Company"
+                    />
                   </Link>
                 </div>
                 <div className="hidden sm:ml-6 md:block">
@@ -59,7 +62,8 @@ export const MainNavbar = ({ setToggle, toggle }) => {
                         key={item.name}
                         to={item.href}
                         className={classNames(
-                          item.href == currentRoute  && "bg-[#6c757d] text-white",
+                          item.href == currentRoute &&
+                            "bg-[#6c757d] text-white",
                           "px-3 py-5 text-xs font-font-family font-semibold text-white hover:bg-gray-700 hover:text-white"
                         )}
                         aria-current={item.current ? "page" : undefined}

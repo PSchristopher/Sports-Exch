@@ -12,6 +12,15 @@ export const Home = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
   };
+  const settings2 = {
+    // dots: true,
+    autoplay: true,
+    arrows: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3.2,
+    slidesToScroll: 1,
+  };
   const images = [
     "https://sportsexch.com/images/banner/slider06.png",
     "https://sportsexch.com/images/banner/slider05.png",
@@ -149,7 +158,6 @@ export const Home = () => {
             </div>
             <p>Sports</p>
           </div>
-         
         </div>
       </div>
 
@@ -235,34 +243,25 @@ export const Home = () => {
       </div>
 
       <div>
-      <div className="flex justify-between mt-3">
+        <div className="flex justify-between mt-3">
           <p className="text-white pb-2 px-2 text-lg font-bold">Cricket</p>
           <p className="text-white pb-2 px-2 text-lg font-bold">1 Event</p>
         </div>
-        <div className="flex overflow-x-scroll w-full scroll-x gap-10 pb-6">
-          <div className=" p-3 w-[165px] flex flex-col ">
-            <img src="https://sportsexch.com/images/banner/slider06.png" class="h-28 min-w-[200px] rounded-md" alt="adfsasdf" />
-          </div>
-          <div className=" p-3 w-[165px] flex flex-col">
-            <img src="https://sportsexch.com/images/banner/slider06.png" class="h-28 min-w-[200px] rounded-md" alt="adfsasdf" />
-          </div>
-          <div className=" p-3 w-[165px] flex flex-col">
-            <img src="https://sportsexch.com/images/banner/slider06.png" class="h-28 min-w-[200px] rounded-md" alt="adfsasdf" />
-          </div>
-          <div className=" p-3 w-[165px] flex flex-col">
-            <img src="https://sportsexch.com/images/banner/slider06.png" class="h-28 min-w-[200px] rounded-md" alt="adfsasdf" />
-          </div>
-          <div className=" p-3 w-[165px] flex flex-col">
-            <img src="https://sportsexch.com/images/banner/slider06.png" class="h-28 min-w-[200px] rounded-md" alt="adfsasdf" />
-          </div>
-          <div className=" p-3 w-[165px] flex flex-col">
-            <img src="https://sportsexch.com/images/banner/slider06.png" class="h-28 min-w-[200px] rounded-md" alt="adfsasdf" />
-          </div>
-          <div className=" p-3 w-[165px] flex flex-col">
-            <img src="https://sportsexch.com/images/banner/slider06.png" class="h-28 min-w-[200px] rounded-md" alt="adfsasdf" />
-          </div>
-        </div>
+        <Slider {...settings2}>
+          {images.map((img, index) => (
+            <div key={index} className="flex  w-full scroll-x gap-14 pb-6">
+            <div key={index} className="p-3 w-[165px] flex flex-col">
+              <img
+                src={img}
+                className="h-28 min-w-[200px] rounded-md"
+                alt={`Slide ${index + 1}`}
+              />
+            </div>
+            </div>
+          ))}
+        </Slider>
       </div>
+     
     </div>
   );
 };

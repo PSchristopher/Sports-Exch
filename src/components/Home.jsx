@@ -21,7 +21,7 @@ export const Home = () => {
   ];
 
   return (
-    <div className="w-full sm:px-0">
+    <div className="w-full sm:px-0 mb-4">
       <div>
         <Slider {...settings}>
           {images.map((img, index) => (

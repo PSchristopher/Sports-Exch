@@ -3,7 +3,7 @@ import { Paths } from "./path";
 import { SportsPage } from "../pages/Sports";
 import { HomePage } from "../pages/Home";
 import { Layout } from "../pages/Layout";
-import { InPlayPage, IndianCasinoPage } from "../pages";
+import { InPlayPage, IndianCasinoPage, IplClubPage, SlotsPage } from "../pages";
 export const AppRouter = () => {
   return (
     <Routes>
@@ -12,6 +12,8 @@ export const AppRouter = () => {
         <Route path={Paths.sports} element={<SportsPage />} />
         <Route path={Paths.inplay} element={<InPlayPage />} />
         <Route path={Paths.indianCasino} element={<IndianCasinoPage />} />
+        <Route path={Paths.slots} element={<SlotsPage />} />
+        <Route path={Paths.iplclub} element={<IplClubPage />} />
       </Route>
     </Routes>
   );

@@ -98,14 +98,14 @@ export const InPlay = () => {
   return (
     <div className="w-full sm:px-0">
       <Tab.Group>
-        <Tab.List className="flex gap-2 rounded-xl bg-blue-900/20 p-1">
+        <Tab.List className="flex gap-2 rounded-xl bg-blue-900/20 p-1 scroll-x">
           {Object.keys(categories).map((category) => (
             <Tab
               key={category}
               className={({ selected }) =>
                 classNames(
                   "w-full rounded-md py-2 px-2 text-sm font-medium leading-5 ",
-                  " ring-opacity-60 ring-offset-2 ",
+                  " ring-opacity-60 ring-offset-2 min-w-[150px]",
                   selected
                     ? "bg-white "
                     : "text-blue-100 bg-[#32383e] hover:bg-[#32383e] hover:text-white"

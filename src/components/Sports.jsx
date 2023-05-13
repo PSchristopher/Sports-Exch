@@ -124,18 +124,50 @@ export const Sports = () => {
         shareCount: 2,
       },
     ],
+    Popular2: [
+      {
+        id: 1,
+        title: "Is tech making coffee better or worse?",
+        date: "Jan 7",
+        commentCount: 29,
+        shareCount: 16,
+      },
+      {
+        id: 2,
+        title: "The most innovative things happening in coffee",
+        date: "Mar 19",
+        commentCount: 24,
+        shareCount: 12,
+      },
+    ],
+    Trending4: [
+      {
+        id: 1,
+        title: "Ask Me Anything: 10 answers to your questions about coffee",
+        date: "2d ago",
+        commentCount: 9,
+        shareCount: 5,
+      },
+      {
+        id: 2,
+        title: "The worst advice we've ever heard about coffee",
+        date: "4d ago",
+        commentCount: 1,
+        shareCount: 2,
+      },
+    ],
   });
   return (
-    <div className="w-full sm:px-0">
+    <div className="w-full sm:px-0 mb-16 ">
       <Tab.Group>
-        <Tab.List className="flex gap-2 rounded-xl bg-blue-900/20 p-1">
+        <Tab.List className="flex gap-2 rounded-xl bg-blue-900/20 p-1  scroll-x">
           {Object.keys(categories).map((category) => (
             <Tab
               key={category}
               className={({ selected }) =>
                 classNames(
                   "w-full rounded-md py-2 px-2 text-sm font-medium leading-5 ",
-                  " ring-opacity-60 ring-offset-2 ",
+                  " ring-opacity-60 ring-offset-2 min-w-[150px]",
                   selected
                     ? "bg-white "
                     : "text-blue-100 bg-[#32383e] hover:bg-[#32383e] hover:text-white"

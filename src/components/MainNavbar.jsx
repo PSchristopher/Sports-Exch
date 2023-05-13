@@ -8,10 +8,10 @@ import { useLocation } from 'react-router-dom';
 const navigation = [
   { name: "SPORTS", href: "/all-sports", current: true },
   { name: "IN-PLAY", href: "/in-play", current: false },
-  { name: "IPL CLUB", href: "#", current: false },
+  { name: "IPL CLUB", href: "/indian-premier-league", current: false },
   { name: "INDIAN CASINO", href: "/indian-casino", current: false },
   { name: "LIVE CASINO", href: "#", current: false },
-  { name: "SLOTS", href: "#", current: false },
+  { name: "SLOTS", href: "/slots", current: false },
 ];
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
